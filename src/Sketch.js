@@ -16,14 +16,20 @@ class Sketch extends React.Component {
         // a p5 object "p"
         p.setup = () => {
             //Everyhting that normally happens in setup works
-            p.createCanvas(400,400)
+            p.createCanvas(p.windowWidth, p.windowHeight)
         }
 
         p.draw = () => {
             // And everything that normally goes in draw in here
-            p.background(0)
-            p.circle(p.width / 2, p.height / 2, 50)
+            if(p.mouseIsPressed){
+                p.fill(0);
+            } else {
+                p.fill(255);
+            }
+            p.ellipse(p.mouseX, p.mouseY, 80, 80);
         }
+
+     
     }
 
     componentDidMount() {
